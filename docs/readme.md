@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # 📚 DevWay — Panduan Arsitektur Universal
 
 > **Pola:** Decoupled Architecture (Hexagonal DDD + Modular Component-Based)
