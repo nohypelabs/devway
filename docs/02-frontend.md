@@ -1,10 +1,11 @@
-## 📄 FILE 3: `02-FRONTEND.md` (Frontend Architecture — Stack-Agnostic)
+---
+sidebar_position: 2
+---
 
-```markdown
 # FRONTEND.md — Frontend Architecture Standard (Stack-Agnostic)
 
-> **Pola:** Feature-based folder structure + strict component composition  
-> **Prinsip:** `page.*` sebagai composition root, bukan tempat menulis JSX/HTML detail  
+> **Pola:** Feature-based folder structure + strict component composition
+> **Prinsip:** `page.*` sebagai composition root, bukan tempat menulis JSX/HTML detail
 > **Stack:** Bebas — berlaku untuk React, Vue, Svelte, Angular, atau bahkan vanilla JS.
 
 ---
@@ -20,45 +21,48 @@
 ---
 
 ## 2. Struktur Folder Frontend (Generik)
-src/client/ # atau app/, ui/, frontend/, dsb.
-├── (admin)/ # Route Group: Admin
-│ └── dashboard/
-│ └── page.* # HANYA composition root
-├── (dashboard)/ # Route Group: User
-│ ├── products/
-│ │ └── [id]/
-│ │ ├── _components/ # Komponen khusus route ini
-│ │ │ ├── ProductForm.*
-│ │ │ └── ImageUploader.*
-│ │ ├── _hooks/ # Atau _composables/, _stores/ (tergantung framework)
-│ │ │ └── useProductForm.*
-│ │ └── page.*
-│ └── orders/
-│ ├── _components/
-│ │ ├── OrderTable.*
-│ │ └── InvoiceModal.*
-│ ├── _hooks/
-│ │ └── useOrdersData.*
-│ └── page.*
-├── (public)/ # Login, Landing Page
-│ └── login/
-│ └── page.*
-└── _shared/ # Shared components (domain-specific)
-└── components/
-└── UserAvatar.*
 
-text
+```text
+src/client/                         # atau app/, ui/, frontend/, dsb.
+├── (admin)/                        # Route Group: Admin
+│   └── dashboard/
+│       └── page.*                  # HANYA composition root
+├── (dashboard)/                    # Route Group: User
+│   ├── products/
+│   │   ├── [id]/
+│   │   │   ├── _components/         # Komponen khusus route ini
+│   │   │   │   ├── ProductForm.*
+│   │   │   │   └── ImageUploader.*
+│   │   │   ├── _hooks/              # Atau _composables/, _stores/ (tergantung framework)
+│   │   │   │   └── useProductForm.*
+│   │   │   └── page.*
+│   │   └── orders/
+│   │       ├── _components/
+│   │       │   ├── OrderTable.*
+│   │       │   └── InvoiceModal.*
+│   │       ├── _hooks/
+│   │       │   └── useOrdersData.*
+│   │       └── page.*
+│   └── (public)/                   # Login, Landing Page
+│       └── login/
+│           └── page.*
+└── _shared/                        # Shared components (domain-specific)
+    └── components/
+        └── UserAvatar.*
+```
 
 **Aturan folder:**
+
 - Komponen khusus 1 route → `_components/` route (pakai prefiks `_` agar diabaikan oleh router).
 - Komponen dipakai ≥2 halaman → naikkan ke `src/client/_shared/components/` (domain-specific) atau `src/client/ui/` (UI primitif).
-- **⚠️ PERANGKAT PREMATURE ABSTRACTION:** Jangan pindahkan ke shared hanya karena dipakai 2 halaman. Tunggu **minimal 3 penggunaan identik** atau kontrak props-nya stabil.
+- **⚠️ PERANGKAP PREMATURE ABSTRACTION:** Jangan pindahkan ke shared hanya karena dipakai 2 halaman. Tunggu **minimal 3 penggunaan identik** atau kontrak props-nya stabil.
 
 ---
 
 ## 3. Contoh: `page.*` yang Benar vs Salah
 
 ### ❌ SALAH — Monolith (React/JSX)
+
 ```tsx
 export default function DashboardPage() {
   return (
@@ -71,8 +75,11 @@ export default function DashboardPage() {
     </div>
   );
 }
-✅ BENAR — Composition Root
-tsx
+```
+
+### ✅ BENAR — Composition Root
+
+```tsx
 import { StatsGrid } from '@/components/dashboard/StatsGrid';
 import { OrderTable } from '@/components/dashboard/OrderTable';
 
@@ -87,9 +94,11 @@ export default function DashboardPage() {
     </div>
   );
 }
+```
+
 Untuk Vue:
 
-vue
+```vue
 <template>
   <div class="min-h-screen">
     <StatsGrid :stats="stats" />
@@ -103,41 +112,56 @@ import { useOrders } from '@/composables/useOrders';
 const { data: stats } = useStats();
 const { data: orders } = useOrders();
 </script>
-4. Kapan Fetching/State Boleh di Komponen Anak
-Default: Fetching/data-fetching di page.*, hasil diturunkan via props.
+```
+
+---
+
+## 4. Kapan Fetching/State Boleh di Komponen Anak
+
+Default: Fetching/data-fetching di `page.*`, hasil diturunkan via props.
 
 Pengecualian (komponen boleh fetch sendiri):
 
-Punya state internal kompleks yang terikat erat dengan query (chart dengan toggle periode).
+- Punya state internal kompleks yang terikat erat dengan query (chart dengan toggle periode).
+- Dipakai di banyak tempat dengan kebutuhan data yang sama persis.
 
-Dipakai di banyak tempat dengan kebutuhan data yang sama persis.
+---
 
-5. Styling Cheat Sheet (React/Tailwind)
-Yang Mau Diubah	Class Tailwind
-Tinggi/lebar card	h-[...], w-[...], min-h-[...]
-Padding	p-5, px-6 py-3
-Border radius	rounded-[28px], rounded-xl
-Grid kolom	grid-cols-2, lg:grid-cols-4
-Gap	gap-[13px], lg:gap-[18px]
-Lebar relatif	col-span-3 (dari total grid-cols-5)
+## 5. Styling Cheat Sheet (React/Tailwind)
+
+| Yang Mau Diubah | Class Tailwind |
+|---|---|
+| Tinggi/lebar card | `h-[...]`, `w-[...]`, `min-h-[...]` |
+| Padding | `p-5`, `px-6 py-3` |
+| Border radius | `rounded-[28px]`, `rounded-xl` |
+| Grid kolom | `grid-cols-2`, `lg:grid-cols-4` |
+| Gap | `gap-[13px]`, `lg:gap-[18px]` |
+| Lebar relatif | `col-span-3` (dari total `grid-cols-5`) |
+
 Untuk framework lain, sesuaikan dengan sistem styling masing-masing (Vue scoped, Svelte, CSS Modules, dsb.).
 
-6. tRPC vs REST vs GraphQL (Stack-Agnostic)
-tRPC (Next.js): trpc.server.routerName.procedureName (server) / trpc.react... (client)
+---
 
-REST (Flask/Express): fetch('/api/...') di page.* atau di custom hook.
+## 6. tRPC vs REST vs GraphQL (Stack-Agnostic)
 
-GraphQL (Apollo): useQuery/useMutation di page.* atau di custom hook.
+- **tRPC (Next.js):** `trpc.server.routerName.procedureName` (server) / `trpc.react...` (client)
+- **REST (Flask/Express):** `fetch('/api/...')` di `page.*` atau di custom hook.
+- **GraphQL (Apollo):** `useQuery`/`useMutation` di `page.*` atau di custom hook.
 
 Prinsip: Jangan panggil API langsung di komponen presentational — ekstrak ke hook/composable/service.
 
-7. Panduan Testing Frontend
-Component Test: Testing Library (React/Vue/Svelte) untuk komponen di _components/.
+---
 
-Hook Test: @testing-library/react-hooks (React) atau @vue/test-utils (Vue) untuk custom hook di _hooks/.
+## 7. Panduan Testing Frontend
 
-8. Checklist Sebelum Commit Halaman Baru
-□ Buka page.* — apakah isinya cuma import + susun komponen?
-□ Setiap komponen baru punya nama yang menjelaskan apa yang direndernya.
-□ Komponen yang dipakai >1 halaman sudah dipindah ke shared (tapi tunggu 3x pakai!).
-□ Tidak ada file komponen tunggal yang melebihi ~150–200 baris.
+- **Component Test:** Testing Library (React/Vue/Svelte) untuk komponen di `_components/`.
+- **Hook Test:** `@testing-library/react-hooks` (React) atau `@vue/test-utils` (Vue) untuk custom hook di `_hooks/`.
+
+---
+
+## 8. Checklist Sebelum Commit Halaman Baru
+
+- [ ] Buka `page.*` — apakah isinya cuma import + susun komponen?
+- [ ] Setiap komponen baru punya nama yang menjelaskan apa yang direndernya.
+- [ ] Komponen yang dipakai >1 halaman sudah dipindah ke shared (tapi tunggu 3x pakai!).
+- [ ] Tidak ada file komponen tunggal yang melebihi ~150–200 baris.

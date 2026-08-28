@@ -88,11 +88,11 @@ const config: Config = {
             },
             {
               label: 'Backend',
-              to: '/docs/01-backend',
+              to: '/docs/backend',
             },
             {
               label: 'Frontend',
-              to: '/docs/02-frontend',
+              to: '/docs/frontend',
             },
           ],
         },
@@ -118,7 +118,7 @@ const config: Config = {
             },
             {
               label: 'CHANGELOG',
-              to: '/docs/CHANGELOG',
+              to: '/docs/changelog',
             },
           ],
         },
