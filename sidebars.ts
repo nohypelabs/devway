@@ -10,7 +10,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '⚙️ Backend Architecture',
-      items: ['backend', 'advanced'],
+      items: ['backend', 'multi-tenant', 'advanced'],
     },
     {
       type: 'category',
@@ -25,7 +25,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '🛠️ Development & Deployment',
-      items: ['development', 'deployment', 'testing'],
+      items: ['development', 'deployment', 'testing', 'new-repo'],
     },
     {
       type: 'category',

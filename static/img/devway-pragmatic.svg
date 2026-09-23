@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Pragmatis">
+  <rect width="200" height="200" rx="24" fill="#e8f5ee"/>
+  <g stroke="#2e8555" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M44 150 L44 120 L84 120 L84 92 L124 92 L124 64 L156 64" fill="none"/>
+    <path d="M44 150 L84 150 L84 120" fill="#cdeadd"/>
+    <path d="M84 120 L124 120 L124 92" fill="#bfe8d6"/>
+    <path d="M124 92 L156 92 L156 64" fill="#a9e0c7"/>
+  </g>
+  <path d="M34 150 L166 150" stroke="#2e8555" stroke-width="3" stroke-linecap="round"/>
+  <g transform="translate(54 128)">
+    <path d="M0 8 L5 13 L14 2" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <text x="100" y="178" font-family="sans-serif" font-size="14" font-weight="700" fill="#2e8555" text-anchor="middle">Level 1 → 2</text>
+</svg>

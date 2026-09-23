@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Decoupled and Maintainable">
+  <rect width="200" height="200" rx="24" fill="#e8f5ee"/>
+  <path d="M100 44 L150 72 L150 128 L100 156 L50 128 L50 72 Z" fill="#2e8555"/>
+  <path d="M100 44 L150 72 L100 100 L50 72 Z" fill="#25c2a0"/>
+  <rect x="86" y="86" width="28" height="28" rx="6" fill="#fff"/>
+  <g stroke="#2e8555" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 40 L60 55"/>
+    <path d="M160 40 L140 55"/>
+    <path d="M40 160 L60 145"/>
+    <path d="M160 160 L140 145"/>
+  </g>
+  <circle cx="34" cy="34" r="9" fill="#3b82f6"/>
+  <circle cx="166" cy="34" r="9" fill="#f0a020"/>
+  <circle cx="34" cy="166" r="9" fill="#8b5cf6"/>
+  <circle cx="166" cy="166" r="9" fill="#ef4444"/>
+</svg>

@@ -11,32 +11,35 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Universal',
+    Svg: require('@site/static/img/devway-universal.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Satu standar arsitektur untuk <b>semua stack</b> — React, Vue, Next.js,
+        Express, Django, Laravel, Go, atau vanilla JS. Hanya implementasi
+        teknis yang berbeda.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Pragmatis',
+    Svg: require('@site/static/img/devway-pragmatic.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Mulai dari <b>Level 1</b> (CRUD sederhana). Naik ke <b>Level 2</b>{' '}
+        (state machine + events) hanya kalau benar-benar butuh. Anti
+        over-engineering.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Decoupled & Maintainable',
+    Svg: require('@site/static/img/devway-decoupled.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Backend Hexagonal (Ports & Adapters) + DDD, frontend{' '}
+        <b>feature-based</b> dengan composition root. Dependency rule ketat,
+        mudah dirawat & diskalakan.
       </>
     ),
   },

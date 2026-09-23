@@ -32,17 +32,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/nohypelabs/devway/edit/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          editUrl: 'https://github.com/nohypelabs/devway/edit/main/',
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -68,7 +58,6 @@ const config: Config = {
           position: 'left',
           label: 'Dokumentasi',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/nohypelabs/devway',
           label: 'GitHub',
@@ -113,17 +102,13 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'CHANGELOG',
               to: '/docs/changelog',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} DevWay. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} DevWay. Dibuat dengan ❤️ oleh komunitas DevWay.`,
     },
     prism: {
       theme: prismThemes.github,

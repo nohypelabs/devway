@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+slug: /readme
+---
+
 # 📚 DevWay — Panduan Arsitektur Universal
 
 > **Pola:** Decoupled Architecture (Hexagonal DDD + Modular Component-Based)
@@ -25,16 +30,18 @@
 |---|---|
 | [`readme`](readme) | Panduan arsitektur universal ini |
 | [`architecture`](architecture) | Overview struktur root & prinsip decoupled architecture |
-| [`01-backend`](01-backend) | Standard arsitektur backend — Level 1 (CRUD) & Level 2 (state machine + events), dependency rule, bounded context |
-| [`02-frontend`](02-frontend) | Standard arsitektur frontend — composition root, struktur folder feature-based, kapan ekstraksi komponen |
-| [`03-advanced`](03-advanced) | Pola advanced/enterprise — error handling, env vars, migration, monorepo, observability |
-| [`04-stack-specific`](04-stack-specific) | Contoh implementasi per stack (Next.js, Express, Nuxt, Django, Laravel, Flask, Node+Mongo) |
+| [`backend`](backend) | Standard arsitektur backend — Level 1 (CRUD) & Level 2 (state machine + events), dependency rule, bounded context |
+| [`multi-tenant`](multi-tenant) | Auth & multi-tenancy — TenantContext, repository scoping, RLS, role check |
+| [`frontend`](frontend) | Standard arsitektur frontend — composition root, struktur folder feature-based, kapan ekstraksi komponen |
+| [`advanced`](advanced) | Pola advanced/enterprise — error handling, env vars, migration, monorepo, observability |
+| [`stack-specific`](stack-specific) | Contoh implementasi per stack (Next.js, Express, Nuxt, Django, Laravel, Flask, Node+Mongo) |
 
 ### Operasional & Kontribusi
 
 | Dokumen | Isi |
 |---|---|
 | [`development`](development) | Setup lokal & menjalankan project |
+| [`new-repo`](new-repo) | Membuat repo baru — init, commit pertama, GitHub, file rahasia |
 | [`deployment`](deployment) | Deploy ke production |
 | [`testing`](testing) | Strategi testing (unit, integration, e2e) |
 | [`project-structure`](project-structure) | Penjelasan struktur folder project |
@@ -50,14 +57,14 @@
 
 | Yang Ingin Dibuat | Baca |
 |---|---|
-| Backend module baru (CRUD sederhana) | [`01-backend`](01-backend) §2 |
-| Backend module kompleks (state machine/events) | [`01-backend`](01-backend) §3 |
-| Halaman frontend baru | [`02-frontend`](02-frontend) §2–§3 |
-| Komponen UI baru | [`02-frontend`](02-frontend) §1 |
-| Error handling & observability | [`03-advanced`](03-advanced) §1, §5 |
-| Environment variables | [`03-advanced`](03-advanced) §2 |
-| Database migration | [`03-advanced`](03-advanced) §3 |
-| Scaling ke monorepo | [`03-advanced`](03-advanced) §4 |
+| Backend module baru (CRUD sederhana) | [`backend`](backend) §2 |
+| Backend module kompleks (state machine/events) | [`backend`](backend) §3 |
+| Halaman frontend baru | [`frontend`](frontend) §2–§3 |
+| Komponen UI baru | [`frontend`](frontend) §1 |
+| Error handling & observability | [`advanced`](advanced) §1, §5 |
+| Environment variables | [`advanced`](advanced) §2 |
+| Database migration | [`advanced`](advanced) §3 |
+| Scaling ke monorepo | [`advanced`](advanced) §4 |
 | Setup lokal & jalankan project | [`development`](development) |
 | Deploy ke production | [`deployment`](deployment) |
 | Testing | [`testing`](testing) |
